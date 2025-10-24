@@ -2,7 +2,7 @@
 
 from typing import Callable, Dict
 
-def caching_fibonacci() -> Callable[[int], int]:
+def caching_fibonacci() -> Callable[[int], int]: # функція, що приймає int і повертає int
     """
     Повертає функцію fibonacci(n), яка рахує n-те число Фібоначчі.
     Результати кешуються у словнику `cache`, що зберігається в замиканні.
@@ -13,7 +13,7 @@ def caching_fibonacci() -> Callable[[int], int]:
     з тим самим n працюють миттєво.
     Базові випадки {0: 0, 1: 1} зменшують глибину рекурсії та спрощують код.
     """
-    cache: Dict[int, int] = {0: 0, 1: 1}  # базові значення
+    cache: Dict[int, int] = {0: 0, 1: 1}  # базові значення (підказка, що cache є словником «ціле->ціле»)
 
     def fibonacci(n: int) -> int:
         if n < 0:
