@@ -35,7 +35,7 @@ def input_error(func):
             return "Wrong number of arguments."
         except ValueError as e:
             # неправильна кількість/формат аргументів
-            return str(e) if str(e) else "Give me name and phone please."
+            return str(e) + "\n"+ "Enter the arguments for the command" if str(e) else "Give me name and phone please."
     return inner
 
 
@@ -50,8 +50,8 @@ def add_contact(args: List[str], contacts: Dict[str, str]) -> str:
     Помилки:
       - ValueError: якщо передано не рівно 2 аргументи.
     """
-    if len(args) != 2:  # потрібна перевірка крім декоратора для більш дружнього повідомлення
-        raise ValueError("Usage: add <name> <phone>")
+    # if len(args) != 2:  # потрібна перевірка крім декоратора для більш дружнього повідомлення
+     #   raise ValueError("Usage: add <name> <phone>")
     name, phone = args
     contacts[name] = phone
     return "Contact added."
@@ -64,8 +64,8 @@ def change_contact(args: List[str], contacts: Dict[str, str]) -> str:
       - ValueError: якщо передано не рівно 2 аргументи.
       - KeyError: якщо контакту не існує.
     """
-    if len(args) != 2:   # потрібна перевірка крім декоратора для більш дружнього повідомлення
-        raise ValueError("Usage: change <name> <new_phone>")
+    # if len(args) != 2:   # потрібна перевірка крім декоратора для більш дружнього повідомлення
+    #    raise ValueError("Usage: change <name> <new_phone>")
     name, phone = args
     if name not in contacts:
         raise KeyError(name)
